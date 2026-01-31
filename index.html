@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الموقع الشخصي - أحمد محمد جمال الدين</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        h1 {
+            color: #2d3748;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            color: #667eea;
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .bio {
+            color: #4a5568;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Sections */
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: #2d3748;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+
+        /* Interests Grid */
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .interest-card {
+            background: linear-gradient(135deg, #f6f8fb 0%, #ffffff 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border-right: 4px solid #667eea;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .interest-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.2);
+            border-right-color: #764ba2;
+        }
+
+        .interest-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .interest-card h3 {
+            color: #2d3748;
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .interest-card p {
+            color: #4a5568;
+            font-size: 1rem;
+        }
+
+        /* Skills */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .skill-item {
+            background: #f7fafc;
+            padding: 1rem;
+            border-radius: 10px;
+            border-right: 3px solid #667eea;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .skill-bar {
+            background: #e2e8f0;
+            height: 8px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            height: 100%;
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+
+        /* Goals */
+        .goals-list {
+            margin-top: 2rem;
+        }
+
+        .goal-item {
+            background: linear-gradient(135deg, #f6f8fb 0%, #ffffff 100%);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            border-right: 4px solid #48bb78;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .goal-item:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 8px 20px rgba(72, 187, 120, 0.2);
+        }
+
+        .goal-icon {
+            font-size: 2rem;
+            min-width: 50px;
+        }
+
+        .goal-content h4 {
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+
+        .goal-content p {
+            color: #4a5568;
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .contact-item i {
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        .contact-item span {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: white;
+            font-size: 1rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .interests-grid,
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <div class="profile-img">📊</div>
+            <h1>أحمد محمد جمال الدين</h1>
+            <p class="tagline">طالب بجامعة الأزهر | محلل بيانات | مسوق رقمي</p>
+            <p class="bio">
+                مرحباً! أنا أحمد، طالب في كلية اللغة العربية شعبة التاريخ والحضارة بجامعة الأزهر. 
+                شغوف بالجمع بين دراستي الأكاديمية والمهارات التقنية الحديثة، حيث أتعلم تحليل البيانات والتسويق الرقمي 
+                لبناء جسر بين التراث والتكنولوجيا.
+            </p>
+        </header>
+
+        <!-- Interests Section -->
+        <section class="section">
+            <h2>🎯 اهتماماتي الرئيسية</h2>
+            <div class="interests-grid">
+                <div class="interest-card">
+                    <div class="interest-icon">📊</div>
+                    <h3>تحليل البيانات</h3>
+                    <p>أتعلم كيفية تحليل البيانات باستخدام Python و Excel، واستخراج رؤى قيمة تساعد في اتخاذ قرارات مدروسة.</p>
+                </div>
+                <div class="interest-card">
+                    <div class="interest-icon">📱</div>
+                    <h3>التسويق الرقمي</h3>
+                    <p>شغوف بتعلم استراتيجيات التسويق عبر وسائل التواصل الاجتماعي، SEO، والحملات الإعلانية الرقمية.</p>
+                </div>
+                <div class="interest-card">
+                    <div class="interest-icon">📚</div>
+                    <h3>التاريخ والحضارة</h3>
+                    <p>أدرس التاريخ والحضارة الإسلامية في الأزهر، وأسعى لربط التراث بالتقنيات الحديثة لنشر المعرفة.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section">
+            <h2>⚡ المهارات التقنية</h2>
+            <div class="skills-container">
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>تحليل البيانات (Python, Excel)</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 75%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>التسويق الرقمي و SEO</span>
+                        <span>70%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 70%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>وسائل التواصل الاجتماعي</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>البحث الأكاديمي</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>الكتابة والتحرير</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>التعلم الذاتي</span>
+                        <span>95%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Goals Section -->
+        <section class="section">
+            <h2>🎯 أهدافي المستقبلية</h2>
+            <div class="goals-list">
+                <div class="goal-item">
+                    <div class="goal-icon">📊</div>
+                    <div class="goal-content">
+                        <h4>احتراف تحليل البيانات</h4>
+                        <p>إتقان أدوات تحليل البيانات المتقدمة مثل Power BI و Tableau والحصول على شهادات معتمدة</p>
+                    </div>
+                </div>
+                <div class="goal-item">
+                    <div class="goal-icon">🎯</div>
+                    <div class="goal-content">
+                        <h4>التميز في التسويق الرقمي</h4>
+                        <p>بناء خبرة عملية في إدارة الحملات الإعلانية وتحسين محركات البحث والحصول على شهادة Google Ads</p>
+                    </div>
+                </div>
+                <div class="goal-item">
+                    <div class="goal-icon">🎓</div>
+                    <div class="goal-content">
+                        <h4>التفوق الأكاديمي</h4>
+                        <p>التخرج بتقدير ممتاز من جامعة الأزهر ومواصلة الدراسات العليا في التاريخ والحضارة</p>
+                    </div>
+                </div>
+                <div class="goal-item">
+                    <div class="goal-icon">💼</div>
+                    <div class="goal-content">
+                        <h4>بناء مسار مهني مميز</h4>
+                        <p>الجمع بين خلفيتي الأكاديمية والمهارات التقنية لإنشاء محتوى تاريخي رقمي مبتكر</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section">
+            <h2>📬 تواصل معي</h2>
+            <div class="contact-grid">
+                <a href="mailto:ahmedmohamed111sm@gmail.com" class="contact-item">
+                    <i>✉️</i>
+                    <span>البريد الإلكتروني</span>
+                </a>
+                <a href="https://www.linkedin.com/in/ahmed-mohamed-aa257a3a8" target="_blank" class="contact-item">
+                    <i>🔗</i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/ahmedmohamed111sm-blip" target="_blank" class="contact-item">
+                    <i>💻</i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://x.com/AHMEDMOHAM2266" target="_blank" class="contact-item">
+                    <i>🐦</i>
+                    <span>Twitter</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2026 أحمد محمد جمال الدين - جميع الحقوق محفوظة</p>
+            <p style="margin-top: 0.5rem; opacity: 0.9;">صُنع بـ ❤️ والشغف بالمعرفة والتكنولوجيا</p>
+        </footer>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Animate skill bars on page load
+        window.addEventListener('load', function() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        });
+
+        // Add smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behav
